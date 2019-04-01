@@ -1,11 +1,15 @@
-React Redux Router Saga Boilerplate
+Github projects Example for my new udemy course. (Release on May 2019)
 
-This repository is created to agilize the beginning of a project and of course, you are interested in using Redux Saga & React Router. That's why I created my own easy boilerplate.
+In this project you can login with your Github account and then, you'll see your projects and your github account info.
+The purpose is to create test cases with Jest (TODO) to demonstrate all kind of tests we can apply to our frontend project.
 
-I'm using these powerful libraries
+I'm using these libraries for help me out to complete this example
 
 * Redux - https://github.com/reduxjs/redux
 * Redux Saga - https://github.com/redux-saga/redux-saga
 * React Redux - https://github.com/reduxjs/react-redux 
 * React Router - https://github.com/ReactTraining/react-router
 * Axios - https://github.com/axios/axios
+* React Github Login - https://github.com/checkr/react-github-login
+* Material UI - https://github.com/mui-org/material-ui
+* React Jss - https://github.com/cssinjs/react-jss

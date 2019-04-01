@@ -1,21 +1,21 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
-import { getData } from "../../utils/storage";
-import { GITHUB_CODE } from "../../consts";
+import { getData } from '../../utils/storage';
+import { GITHUB_TOKEN } from '../../consts';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const githubCode = getData(GITHUB_CODE);
+  const githubToken = getData(GITHUB_TOKEN);
   return (
     <Route
       {...rest}
       render={props =>
-        githubCode ? (
+        githubToken ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: "/"
+              pathname: '/'
             }}
           />
         )

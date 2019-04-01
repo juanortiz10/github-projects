@@ -10,6 +10,7 @@ import get from 'lodash/get';
 
 const initialState = {};
 
+//TODO there's more to do here
 export default function(state = initialState, action) {
   switch (action.type) {
     case START_GET_PROFILE_DATA:

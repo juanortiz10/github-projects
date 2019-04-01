@@ -1,27 +1,41 @@
-import React, { Component } from "react";
-import Card from "@material-ui/core/Card";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/styles";
-import GitHubLogin from "react-github-login";
+import React, { Component } from 'react';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import GitHubLogin from 'react-github-login';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import get from 'lodash/get';
 
-import { styles } from "./style";
-import { GITHUB_CODE } from "../../consts";
-import { saveData } from "../../utils/storage";
+import { getGithubToken } from '../../redux/actions/login';
+import { styles } from './style';
+import { GITHUB_CODE } from '../../consts';
 
 class Login extends Component {
+  static propTypes = {
+    getGithubToken: PropTypes.func.isRequired
+  };
+
   handleSuccess = object => {
     if (object && object.code) {
-      saveData(GITHUB_CODE, object.code);
-      this.props.history.replace("/home");
+      const { getGithubToken, history } = this.props;
+      getGithubToken({ code: object.code });
     }
   };
 
   handleOnFailure = error => {
-    alert("Algo salio mal. Intentalo de nuevo");
+    alert('Algo salio mal. Intentalo de nuevo');
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, githubToken } = this.props;
+
+    if (githubToken) {
+      return <Redirect to="/home" />;
+    }
+
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
@@ -42,4 +56,18 @@ class Login extends Component {
   }
 }
 
-export default withStyles(styles)(Login);
+const actions = {
+  getGithubToken
+};
+
+const mapStateToProps = state => ({
+  githubToken: get(state, 'login.githubToken', null)
+});
+
+export default compose(
+  connect(
+    mapStateToProps,
+    actions
+  ),
+  withStyles(styles)
+)(Login);

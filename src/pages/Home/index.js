@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 import get from 'lodash/get';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
@@ -9,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { GITHUB_TOKEN } from '../../consts';
 import { getProfileData, getProfileRepos } from '../../redux/actions/profile';
-import { getData } from '../../utils/storage';
+import { getData, clearStorage } from '../../utils/storage';
 import LeftContainer from './components/LeftContainer';
 import RightContainer from './components/RightContainer';
 import { styles } from './style';
@@ -42,13 +43,18 @@ class Home extends Component {
     }
   }
 
+  handleLogout = () => {
+    clearStorage();
+    window.location.reload();
+  };
+
   render() {
     const { githubData, classes, githubUserRepos } = this.props;
 
     return (
       <Grid container className={classes.homeContainer}>
         <Grid item xs={2} className={classes.leftContainer}>
-          <LeftContainer {...githubData} />
+          <LeftContainer {...githubData} onLogout={this.handleLogout} />
         </Grid>
         <Grid item xs={10} className={classes.rightContainer}>
           <RightContainer repos={githubUserRepos} />

@@ -64,6 +64,8 @@ const mapStateToProps = state => ({
   githubToken: get(state, 'login.githubToken', null)
 });
 
+export { Login };
+
 export default compose(
   connect(
     mapStateToProps,

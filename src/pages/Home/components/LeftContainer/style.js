@@ -8,5 +8,10 @@ export const styles = {
   },
   whiteFont: {
     color: '#fff'
+  },
+  logoutButton: {
+    color: '#fff',
+    position: 'absolute',
+    bottom: 5
   }
 };

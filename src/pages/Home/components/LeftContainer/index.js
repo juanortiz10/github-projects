@@ -22,4 +22,5 @@ const LeftContainer = ({ classes, avatar_url, bio, blog, email, followers, follo
   </Fragment>
 );
 
+export { LeftContainer };
 export default withStyles(styles)(LeftContainer);

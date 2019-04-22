@@ -9,7 +9,6 @@ import moment from 'moment';
 import cx from 'classnames';
 
 import { styles } from './style';
-import { LANGUAGES_ICON } from '../../../../consts';
 
 const UserRepo = ({ classes, description, name, owner, open_issues, created_at, language, license, html_url }) => {
   return (
@@ -17,12 +16,7 @@ const UserRepo = ({ classes, description, name, owner, open_issues, created_at, 
       <Typography className={cx(classes.repoName, classes.fontFamily)}>{name}</Typography>
       <Typography className={cx(classes.repoCreatedDate, classes.fontFamily)}>{moment(created_at).format('LL')}</Typography>
       <Typography className={cx(classes.repoDescription, classes.fontFamily)}>{description}</Typography>
-      <div className={classes.cardLinks}>
-        {/* TODO <Avatar
-          alt={language}
-          src={language ? LANGUAGES_ICON[language.toUpperCase()] : LANGUAGES_ICON.NOT_DEFINED}
-          className={classes.languageImage}
-        />*/}
+      <div className={classes.cardLinks} id={name}>
         <a href={html_url} target="_blank" className={classes.repoLink}>
           <IconButton>
             <Icon>link</Icon>
@@ -32,5 +26,7 @@ const UserRepo = ({ classes, description, name, owner, open_issues, created_at, 
     </Card>
   );
 };
+
+export { UserRepo };
 
 export default withStyles(styles)(UserRepo);

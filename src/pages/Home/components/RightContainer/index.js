@@ -22,4 +22,5 @@ class RightContainer extends Component {
   }
 }
 
+export { RightContainer };
 export default RightContainer;

@@ -74,6 +74,8 @@ const mapStateToProps = state => ({
   githubUserRepos: state.profile.userRepos
 });
 
+export { Home };
+
 export default compose(
   connect(
     mapStateToProps,

@@ -9,7 +9,6 @@ import {
   ERROR_GET_PROFILE_REPOS
 } from '../../consts/actionTypes';
 
-//TODO there's more work to complete here
 export function* getProfileData({ payload: { githubToken } }) {
   try {
     const githubData = yield call(apiCall, `https://api.github.com/user?access_token=${githubToken}`, null, null, 'get');

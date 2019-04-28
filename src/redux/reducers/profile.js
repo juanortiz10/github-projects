@@ -10,7 +10,6 @@ import get from 'lodash/get';
 
 const initialState = {};
 
-//TODO there's more to do here
 export default function(state = initialState, action) {
   switch (action.type) {
     case START_GET_PROFILE_DATA:
@@ -25,7 +24,7 @@ export default function(state = initialState, action) {
       return { ...state };
       break;
     case SUCCESS_GET_PROFILE_REPOS:
-      const userRepos = get(action, 'userRepos.data', null);
+      const userRepos = get(action, 'userRepos.data', {});
       return { ...state, userRepos };
       break;
     case ERROR_GET_PROFILE_REPOS:

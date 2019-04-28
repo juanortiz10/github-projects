@@ -1,25 +1,10 @@
 import React from 'react';
-import { runSaga } from 'redux-saga';
 import sinon from 'sinon';
 
 import * as api from '../../../../redux/api';
 import { getGithubToken as getGithubTokenSaga } from '../../../../redux/sagas/login';
 import { START_GET_OAUTH_TOKEN, SUCCESS_GET_OAUTH_TOKEN } from '../../../../consts/actionTypes';
-
-const recordSaga = async (saga, initialAction) => {
-  const dispatched = [];
-  //TODO
-
-  await runSaga(
-    {
-      dispatch: action => dispatched.push(action) //TODO
-    },
-    saga,
-    initialAction
-  ).done; //TODO
-
-  return dispatched;
-};
+import { recordSaga } from '../../../../redux/utils';
 
 describe('Login saga', () => {
   it('Should return a valid github token', async () => {

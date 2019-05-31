@@ -1,9 +1,9 @@
-Github projects Example for my new udemy course. (Release on May 2019)
+# Github projects Example for my new udemy course. (Release on July 2019)
 
-In this project you can login with your Github account and then, you'll see your projects and your github account info.
+> In this project you can login with your Github account and then, you'll see your projects and your github account info.
 The purpose is to create test cases with Jest (TODO) to demonstrate all kind of tests we can apply to our frontend project.
 
-I'm using these libraries for help me out to complete this example
+> I'm using these libraries for help me out to complete this example
 
 * Redux - https://github.com/reduxjs/redux
 * Redux Saga - https://github.com/redux-saga/redux-saga
